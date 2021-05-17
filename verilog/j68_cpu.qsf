@@ -1,0 +1,104 @@
+set_global_assignment -name FAMILY "Cyclone II"
+set_global_assignment -name DEVICE EP2C5T144C8
+set_global_assignment -name TOP_LEVEL_ENTITY soc_j68
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 7.2
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "20:28:17  JUNE 28, 2008"
+set_global_assignment -name LAST_QUARTUS_VERSION "13.0 SP1"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name USE_GENERATED_PHYSICAL_CONSTRAINTS OFF -section_id eda_palace
+
+# System I/O
+set_location_assignment PIN_17 -to clk50M
+set_location_assignment PIN_144 -to BTN[0]
+set_location_assignment PIN_79 -to uart1_rxd
+set_location_assignment PIN_81 -to uart1_txd
+
+#SD.Pin 1:DAT2 2:CS 3:CMD 4:VDD 5:SCK 6:VSS 7:DAT0(+pu)
+set_location_assignment PIN_42 -to SD_CS
+set_location_assignment PIN_43 -to SD_CMD
+set_location_assignment PIN_40 -to SD_SCK
+set_location_assignment PIN_41 -to SD_DAT0
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to SD_DAT0
+
+# SDRAM 16MB
+set_location_assignment PIN_121 -to SDRAM_ADDR[12]
+set_location_assignment PIN_120 -to SDRAM_ADDR[11]
+set_location_assignment PIN_65 -to SDRAM_ADDR[10]
+set_location_assignment PIN_119 -to SDRAM_ADDR[9]
+set_location_assignment PIN_118 -to SDRAM_ADDR[8]
+set_location_assignment PIN_115 -to SDRAM_ADDR[7]
+set_location_assignment PIN_114 -to SDRAM_ADDR[6]
+set_location_assignment PIN_113 -to SDRAM_ADDR[5]
+set_location_assignment PIN_112 -to SDRAM_ADDR[4]
+set_location_assignment PIN_71 -to SDRAM_ADDR[3]
+set_location_assignment PIN_72 -to SDRAM_ADDR[2]
+set_location_assignment PIN_69 -to SDRAM_ADDR[1]
+set_location_assignment PIN_70 -to SDRAM_ADDR[0]
+set_location_assignment PIN_67 -to SDRAM_BA[1]
+set_location_assignment PIN_139 -to SDRAM_DATA[15]
+set_location_assignment PIN_137 -to SDRAM_DATA[14]
+set_location_assignment PIN_136 -to SDRAM_DATA[13]
+set_location_assignment PIN_135 -to SDRAM_DATA[12]
+set_location_assignment PIN_134 -to SDRAM_DATA[11]
+set_location_assignment PIN_133 -to SDRAM_DATA[10]
+set_location_assignment PIN_132 -to SDRAM_DATA[9]
+set_location_assignment PIN_129 -to SDRAM_DATA[8]
+set_location_assignment PIN_53 -to SDRAM_DATA[7]
+set_location_assignment PIN_55 -to SDRAM_DATA[6]
+set_location_assignment PIN_51 -to SDRAM_DATA[5]
+set_location_assignment PIN_52 -to SDRAM_DATA[4]
+set_location_assignment PIN_47 -to SDRAM_DATA[3]
+set_location_assignment PIN_48 -to SDRAM_DATA[2]
+set_location_assignment PIN_44 -to SDRAM_DATA[1]
+set_location_assignment PIN_45 -to SDRAM_DATA[0]
+set_location_assignment PIN_126 -to SDRAM_DQMH
+set_location_assignment PIN_58 -to SDRAM_DQML
+set_location_assignment PIN_63 -to SDRAM_BA[0]
+set_location_assignment PIN_60 -to SDRAM_nCAS
+set_location_assignment PIN_59 -to SDRAM_nRAS
+set_location_assignment PIN_57 -to SDRAM_nWE
+set_location_assignment PIN_122 -to SDRAM_CKE
+set_location_assignment PIN_64 -to SDRAM_nCS
+set_location_assignment PIN_125 -to SDRAM_CLK
+
+set_global_assignment -name AUTO_RESTART_CONFIGURATION OFF
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS "AS INPUT TRI-STATED"
+set_global_assignment -name STRATIX_CONFIGURATION_DEVICE EPCS4
+set_global_assignment -name RESERVE_ASDO_AFTER_CONFIGURATION "AS INPUT TRI-STATED"
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS_NO_OUTPUT_GND "AS INPUT TRI-STATED"
+set_global_assignment -name ENABLE_SIGNALTAP ON
+set_global_assignment -name LL_ROOT_REGION ON -section_id "Root Region"
+set_global_assignment -name LL_MEMBER_STATE LOCKED -section_id "Root Region"
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name USE_SIGNALTAP_FILE output_files/j68_cpu.stp
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name TIMEQUEST_MULTICORNER_ANALYSIS ON
+set_global_assignment -name SMART_RECOMPILE OFF
+set_global_assignment -name NUM_PARALLEL_PROCESSORS ALL
+set_global_assignment -name VHDL_FILE rtl/sd_controller.vhd
+set_global_assignment -name VERILOG_FILE rtl/sdram.v
+set_global_assignment -name VERILOG_FILE rtl/soc_j68.v
+set_global_assignment -name VERILOG_FILE rtl/j68_test.v
+set_global_assignment -name VERILOG_FILE rtl/j68_mem_io.v
+set_global_assignment -name VERILOG_FILE rtl/j68_loop.v
+set_global_assignment -name VERILOG_FILE rtl/j68_flags.v
+set_global_assignment -name VERILOG_FILE rtl/j68_dpram_2048x20.v
+set_global_assignment -name VERILOG_FILE rtl/j68_decode_rom.v
+set_global_assignment -name VERILOG_FILE rtl/j68_decode.v
+set_global_assignment -name VERILOG_FILE rtl/j68_alu.v
+set_global_assignment -name VERILOG_FILE rtl/j68_addsub_32.v
+set_global_assignment -name VERILOG_FILE rtl/acia_6850.v
+set_global_assignment -name VERILOG_FILE rtl/cpu_j68.v
+set_global_assignment -name SIGNALTAP_FILE output_files/j68_cpu.stp
+set_global_assignment -name QIP_FILE IP/clkgen.qip
+set_global_assignment -name QIP_FILE IP/onchip_rom.qip
+set_global_assignment -name QIP_FILE IP/sdcd_ram.qip
+set_global_assignment -name SLD_FILE "C:/kitahard/EP2C5_MINI/cpm68k/output_files/j68_cpu_auto_stripped.stp"
+set_global_assignment -name CDF_FILE output_files/j68_cpu.cdf
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
